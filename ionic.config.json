@@ -1,0 +1,7 @@
+{
+  "name": "projeto_pokemon",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
