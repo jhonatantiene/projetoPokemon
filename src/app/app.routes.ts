@@ -2,12 +2,16 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./home/tela-principal').then((m) => m.HomePage),
+    path: 'telaPrincipal',
+    loadComponent: () => import('./tela-principal/tela-principal').then((m) => m.TelaPrincipal),
+  },
+  {
+    path: 'telaDetalhes',
+    loadComponent: () => import('./tela-detalhes/tela-detalhes.component').then((m) => m.TelaDetalhesComponent),
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'telaPrincipal',
     pathMatch: 'full',
   },
 ];
