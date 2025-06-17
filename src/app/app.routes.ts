@@ -10,6 +10,10 @@ export const routes: Routes = [
     loadComponent: () => import('./tela-detalhes/tela-detalhes.component').then((m) => m.TelaDetalhesComponent),
   },
   {
+    path: 'telaFavoritos',
+    loadComponent: () => import('./tela-favoritos/tela-favoritos.component').then((m) => m.TelaFavoritosComponent),
+  },
+  {
     path: '',
     redirectTo: 'telaPrincipal',
     pathMatch: 'full',
