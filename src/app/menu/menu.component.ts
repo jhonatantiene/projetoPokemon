@@ -4,14 +4,13 @@ import {
   IonHeader,
   IonMenu,
   IonTitle,
-  IonToolbar,
-} from "@ionic/angular/standalone";
+  IonToolbar, IonItem, IonList, IonLabel, IonIcon } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
-  imports: [IonContent, IonHeader, IonMenu, IonTitle, IonToolbar]
+  imports: [IonIcon, IonLabel, IonList, IonItem, IonContent, IonHeader, IonMenu, IonTitle, IonToolbar]
 })
 export class MenuComponent implements OnInit {
 
