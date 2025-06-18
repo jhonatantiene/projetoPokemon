@@ -1,18 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-menu-button slot="start" style="margin-left: 5px;"></ion-menu-button>
+    <div style="text-align: center;"><span class="titulo">Pokémons</span></div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <div class="container">
+    @for (item of listaPokemons; track $index) {
+    <ion-card>
+      <img [src]="item.imgOficial" alt="">
+      <ion-card-content>
+        <ion-card-title style="text-align: center;">
+          {{item.nome}}
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+    }
   </div>
 </ion-content>

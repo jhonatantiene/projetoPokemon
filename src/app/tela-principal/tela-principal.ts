@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonCard, IonCardContent, IonLabel, IonImg, IonCardTitle } from '@ionic/angular/standalone';
 import { MenuComponent } from "../menu/menu.component";
 import { PokeApiService } from '../servicos/poke-api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'app-tela-principal',
   templateUrl: 'tela-principal.html',
   styleUrls: ['tela-principal.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, MenuComponent, IonMenuButton],
+  imports: [IonCardTitle, IonCardContent, IonCard, IonHeader, IonToolbar, IonContent, IonMenuButton],
 })
 export class TelaPrincipal implements OnInit {
   constructor(private api: PokeApiService, private snackBar: MatSnackBar) { }
