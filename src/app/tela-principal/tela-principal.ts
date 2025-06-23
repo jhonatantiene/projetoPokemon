@@ -14,17 +14,23 @@ export class TelaPrincipal implements OnInit {
   constructor(private api: PokeApiService, private snackBar: MatSnackBar) { }
 
   listaPokemons: any = []
-  pesquisa: any = ''
+  pesquisa: string = ''
+  offset: number = 0;
+  limit: number = 20;
+  totalPokemons: number = 0;
+  paginaAtual: number = 1;
 
   ngOnInit(): void {
     this.buscarTodosPoke()
   }
 
   buscarTodosPoke() {
-    this.api.listarTodosPoke().subscribe({
+    this.api.listarTodosPoke(this.offset, this.limit).subscribe({
       next: (res: any) => {
         let id = undefined
         this.listaPokemons = res.results.map((v: any) => {
+          this.totalPokemons = res.count;
+          this.paginaAtual = this.offset / this.limit + 1;
           id = v.url.split('/').slice(6, 7)[0] //pega o id da imagem
           return {
             nome: v.name,
@@ -59,7 +65,24 @@ export class TelaPrincipal implements OnInit {
         })
       }
     });
+  }
 
+  proximaPagina() {
+    if (this.offset + this.limit < this.totalPokemons) {
+      this.offset += this.limit;
+      this.buscarTodosPoke();
+    }
+  }
+
+  paginaAnterior() {
+    if (this.offset > 0) {
+      this.offset -= this.limit;
+      this.buscarTodosPoke();
+    }
+  }
+
+  totalPaginas(): number {
+    return Math.ceil(this.totalPokemons / this.limit);
   }
 
 }

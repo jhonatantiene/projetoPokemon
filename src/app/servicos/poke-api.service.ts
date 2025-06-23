@@ -12,7 +12,7 @@ export class PokeApiService {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${idOuNome}`)
   }
 
-  listarTodosPoke() {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon`)
+  listarTodosPoke(offset: number = 0, limit: number = 20) {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
   }
 }

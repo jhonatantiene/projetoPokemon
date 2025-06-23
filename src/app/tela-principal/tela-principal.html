@@ -28,4 +28,13 @@
     </ion-card>
     }
   </div>
+  <div class="paginacao">
+    <ion-button [disabled]="offset === 0" (click)="paginaAnterior()">
+      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <span>Página {{paginaAtual}} de {{ totalPaginas() }}</span>
+    <ion-button [disabled]="offset + limit >= totalPokemons" (click)="proximaPagina()">
+      <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>
