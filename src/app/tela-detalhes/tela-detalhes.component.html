@@ -1,3 +1,62 @@
-<p>
-  tela-detalhes works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-menu-button slot="start" style="margin-left: 5px;"></ion-menu-button>
+    <div style="text-align: center;"><span class="titulo">Pokémons</span></div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div>
+    <swiper-container navigation="true" pagination="true">
+      @for (img of imagens; track $index) {
+      <swiper-slide>
+        <ion-card style="display: flex; justify-content: center;">
+          <img [src]="img.url" alt="pokemons">
+        </ion-card>
+      </swiper-slide>
+      }
+    </swiper-container>
+    <ion-button expand="block" style="--background: #FFCB05;">
+      <ion-icon name="star-outline" slot="start"></ion-icon>
+      Adicionar aos favoritos
+    </ion-button>
+  </div>
+
+
+  @if(informacoes) {
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label>
+        ID: {{ informacoes.id }}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Nome: {{ informacoes.nome }}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Tipos: {{ informacoes.tipos.join(', ') }}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Altura: {{ informacoes.altura }} m
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Peso: {{ informacoes.peso }} kg
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Habilidades: {{ informacoes.habilidades.join(', ') }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  }
+
+</ion-content>

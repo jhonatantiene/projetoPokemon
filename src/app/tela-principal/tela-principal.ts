@@ -57,7 +57,8 @@ export class TelaPrincipal implements OnInit {
       next: (res: any) => {
         this.listaPokemons = [{
           nome: res.name,
-          imgOficial: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${res.id}.png`
+          imgOficial: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${res.id}.png`,
+          id: res.id
         }]
       },
       error: (err) => {
