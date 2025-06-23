@@ -18,7 +18,7 @@
 
   <div class="container">
     @for (item of listaPokemons; track $index) {
-    <ion-card>
+    <ion-card (click)="irParaDetalhes(item.id)">
       <img [src]="item.imgOficial" alt="">
       <ion-card-content>
         <ion-card-title style="text-align: center;">

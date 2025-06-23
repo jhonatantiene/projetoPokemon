@@ -6,7 +6,7 @@ export const routes: Routes = [
     loadComponent: () => import('./tela-principal/tela-principal').then((m) => m.TelaPrincipal),
   },
   {
-    path: 'telaDetalhes',
+    path: 'telaDetalhes/:id',
     loadComponent: () => import('./tela-detalhes/tela-detalhes.component').then((m) => m.TelaDetalhesComponent),
   },
   {
