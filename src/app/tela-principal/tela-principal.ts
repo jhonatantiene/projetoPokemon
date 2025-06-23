@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonMenuButton, IonCard, IonCardContent, IonLabel, IonImg, IonCardTitle } from '@ionic/angular/standalone';
-import { MenuComponent } from "../menu/menu.component";
+import { IonHeader, IonToolbar, IonContent, IonMenuButton, IonCard, IonCardContent, IonCardTitle, IonButtons, IonButton, IonIcon, IonItem, IonInput } from '@ionic/angular/standalone';
 import { PokeApiService } from '../servicos/poke-api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tela-principal',
   templateUrl: 'tela-principal.html',
   styleUrls: ['tela-principal.scss'],
-  imports: [IonCardTitle, IonCardContent, IonCard, IonHeader, IonToolbar, IonContent, IonMenuButton],
+  imports: [IonItem, IonIcon, IonButton, IonButtons, IonCardTitle, IonCardContent, IonCard, IonHeader, IonToolbar, IonContent, IonMenuButton, FormsModule, IonInput],
 })
 export class TelaPrincipal implements OnInit {
   constructor(private api: PokeApiService, private snackBar: MatSnackBar) { }
 
   listaPokemons: any = []
+  pesquisa: any = ''
 
   ngOnInit(): void {
     this.buscarTodosPoke()
@@ -40,8 +41,8 @@ export class TelaPrincipal implements OnInit {
     })
   }
 
-  buscarPokePorIdOuNome(idOuNome: string) {
-    if (idOuNome.trim() == '' || idOuNome == undefined || idOuNome == null) {
+  buscarPokePorIdOuNome(idOuNome: any) {
+    if (idOuNome?.trim() == '' || idOuNome == undefined || idOuNome == null) {
       return
     }
     this.api.pokePorIdOuNome(idOuNome).subscribe({
@@ -58,7 +59,7 @@ export class TelaPrincipal implements OnInit {
         })
       }
     });
-  }
 
+  }
 
 }

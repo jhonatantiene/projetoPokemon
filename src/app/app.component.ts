@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { MenuComponent } from "./menu/menu.component";
 import { addIcons } from 'ionicons';
-import { gridOutline, starOutline } from 'ionicons/icons'
+import { gridOutline, searchOutline, starOutline } from 'ionicons/icons'
 
 addIcons({
   'grid-outline': gridOutline,
-  'star-outline': starOutline
+  'star-outline': starOutline,
+  'search': searchOutline
 })
 
 @Component({
