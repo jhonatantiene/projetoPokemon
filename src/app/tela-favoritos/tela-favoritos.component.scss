@@ -1,0 +1,32 @@
+.titulo {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 60px;
+    color: #FFCB05;
+    -webkit-text-stroke: 3px #2a75bb;
+    letter-spacing: 4px;
+}
+
+@media screen and (max-width: 700px) {
+    .titulo {
+        font-size: 30px;
+        font-family: 'Luckiest Guy', cursive;
+        color: #FFCB05;
+        -webkit-text-stroke: 1.3px #2a75bb;
+        letter-spacing: 3px;
+    }
+}
+
+
+.semFavoritos {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #2a75bb;
+    ion-icon {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+}

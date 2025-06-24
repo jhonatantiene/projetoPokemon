@@ -1,3 +1,36 @@
-<p>
-  tela-favoritos works!
-</p>
+<ion-header [translucent]="true">
+
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <div style="text-align: center;"><span class="titulo">Pokémons</span></div>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (listaFavoritos.length > 0) {
+  <ion-list lines="full" >
+    <ion-item-sliding>
+      @for (item of listaFavoritos; track $index) {
+      <ion-item button (click)="verDetalhes(item.id)">
+        <ion-thumbnail>
+          <img [src]="item.urlImg" alt="pokemon">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{item.nome}}</h2>
+          <p>Tipos: {{item.tipos}}</p>
+        </ion-label>
+      </ion-item>
+      }
+    </ion-item-sliding>
+  </ion-list>
+  } @else {
+    <div class="semFavoritos">
+      <ion-icon name="star-outline" size="large"></ion-icon>
+      <p>Você ainda não adicionou nenhum favorito!</p>
+    </div>
+  }
+
+</ion-content>
