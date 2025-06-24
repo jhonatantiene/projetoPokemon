@@ -17,10 +17,19 @@
       </swiper-slide>
       }
     </swiper-container>
-    <ion-button expand="block" style="--background: #FFCB05;">
+
+    @if (!jaExisteNosFavoritos) {
+    <ion-button expand="block" style="--background: #FFCB05;" (click)="adicionarAosFavoritos()">
       <ion-icon name="star-outline" slot="start"></ion-icon>
       Adicionar aos favoritos
     </ion-button>
+    } @else {
+    <ion-button expand="block" style="--background: #d32f2f;" (click)="removerDosFavoritos()">
+      <ion-icon name="trash-outline" slot="start"></ion-icon>
+      Remover dos favoritos
+    </ion-button>
+    }
+
   </div>
 
 
