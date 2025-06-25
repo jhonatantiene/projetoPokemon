@@ -28,4 +28,9 @@ export class TelaFavoritosComponent implements ViewWillEnter {
     this.route.navigate(['/telaDetalhes', id])
   }
 
+  removerFavorito(id: number) {
+    this.listaFavoritos = this.listaFavoritos.filter((p: any) => p.id !== id)
+    localStorage.setItem('favoritos', JSON.stringify(this.listaFavoritos))
+  }
+
 }
